@@ -2,26 +2,26 @@
 
 namespace App\Services\MasterData;
 
-use App\Repositories\Contracts\MasterData\CategoryInterface as CategoryRepo;
-use App\Services\Contracts\MasterData\CategoryInterface;
-use App\Models\MasterData\Category;
+use App\Repositories\Contracts\MasterData\ProductInterface as ProductRepo;
+use App\Services\Contracts\MasterData\ProductInterface;
+use App\Models\MasterData\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use DataTables;
 use Auth;
 
-class CategoryService implements CategoryInterface
+class ProductService implements ProductInterface
 {    
-    protected $categoryRepo;
+    protected $productRepo;
 
-    public function __construct(CategoryRepo $categoryRepo)
+    public function __construct(ProductRepo $productRepo)
     {
-        $this->categoryRepo = $categoryRepo;
+        $this->productRepo = $productRepo;
     }
 
     public function getAllPaginatedWithParams($params, $limit = 10)
     {
-       return $this->categoryRepo->getAllPaginatedWithParams($params, $limit);
+       return $this->productRepo->getAllPaginatedWithParams($params, $limit);
     }
 
      /**
@@ -34,7 +34,7 @@ class CategoryService implements CategoryInterface
      */
     public function find($id)
     {
-        return $this->categoryRepo->find($id);
+        return $this->productRepo->find($id);
     }
     
     /**
@@ -47,7 +47,7 @@ class CategoryService implements CategoryInterface
     {
         $permissions = DB::transaction(function () use ($request) {
             $input = $request->all();
-            return $this->categoryRepo->create($input);
+            return $this->productRepo->create($input);
         });
 
         return $permissions;
@@ -64,7 +64,7 @@ class CategoryService implements CategoryInterface
     {
         $permissions = DB::transaction(function () use ($request, $id) {
             $input = $request->except('_token','_method');
-            return $this->categoryRepo->update($input, $id);
+            return $this->productRepo->update($input, $id);
         });
 
         return $permissions;
@@ -77,6 +77,6 @@ class CategoryService implements CategoryInterface
      */
     public function delete($id)
     {
-        return $this->categoryRepo->delete($id);
+        return $this->productRepo->delete($id);
     }
 }

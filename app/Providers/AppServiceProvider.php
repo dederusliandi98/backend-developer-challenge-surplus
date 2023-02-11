@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
         $models = [
             #Master data
             'MasterData\Category',
+            'MasterData\Product',
         ];
 
         foreach ($models as $model) {

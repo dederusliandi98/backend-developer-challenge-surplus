@@ -26,6 +26,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $models = [
             #Master Data
             'MasterData\Category',
+            'MasterData\Product',
         ];
 
         foreach ($models as $model) {

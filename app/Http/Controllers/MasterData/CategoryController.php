@@ -29,7 +29,7 @@ class CategoryController extends Controller
     {
         try {
             $categories = $this->categoryService->getAllPaginatedWithParams($request);
-            return $this->sendResponse(CategoryResource::collection($categories), 'list of all product categories');
+            return $this->sendResponse(CategoryResource::collection($categories), 'list of all categories');
 
         } catch(\Exception $e) {
             return $this->sendError($e->getMessage());
