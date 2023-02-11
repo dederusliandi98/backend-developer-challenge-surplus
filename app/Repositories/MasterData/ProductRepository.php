@@ -22,12 +22,12 @@ class ProductRepository extends BaseRepository implements ProductInterface
     {
         $products = $this->model->query();
         if(isset($params->search) && !empty($params->search)) $products->where('name', 'like', '%' . $params->search . '%');
-        $products = $products->orderBy('created_at', 'DESC')->simplePaginate($limit);
+        $products = $products->with(['categories'])->orderBy('created_at', 'DESC')->simplePaginate($limit);
         return $products;
     }
 
     public function find($id)
     {
-        return $this->model->find($id);
+        return $this->model->with(['categories'])->find($id);
     }
 }

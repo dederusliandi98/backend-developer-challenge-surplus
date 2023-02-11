@@ -64,6 +64,7 @@ class ProductController extends Controller
     {
         try {
             if(!$this->productService->find($id)) {
+                return $this->productService->find($id);
                 return $this->sendError('product data not found', 404, config('constants.STATUS.SUCCESS.FALSE'));
             }
 

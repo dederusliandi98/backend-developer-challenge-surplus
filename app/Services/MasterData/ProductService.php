@@ -47,7 +47,9 @@ class ProductService implements ProductInterface
     {
         $permissions = DB::transaction(function () use ($request) {
             $input = $request->all();
-            return $this->productRepo->create($input);
+            $productCreated = $this->productRepo->create($input);
+            $this->productRepo->sync($productCreated->id, 'categories', $request->category_ids);
+            return $productCreated;
         });
 
         return $permissions;
@@ -64,6 +66,7 @@ class ProductService implements ProductInterface
     {
         $permissions = DB::transaction(function () use ($request, $id) {
             $input = $request->except('_token','_method');
+            $this->productRepo->sync($id, 'categories', $request->category_ids);
             return $this->productRepo->update($input, $id);
         });
 

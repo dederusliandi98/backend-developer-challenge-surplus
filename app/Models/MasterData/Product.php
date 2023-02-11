@@ -14,4 +14,9 @@ class Product extends Model
         'description',
         'enable'
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany('App\Models\MasterData\Category')->withTimestamps();
+    }
 }
