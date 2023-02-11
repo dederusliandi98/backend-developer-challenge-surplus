@@ -4,10 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
@@ -17,19 +17,19 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
         $models = [
-            #Master data
+            #Master Data
             'MasterData\Category',
         ];
 
         foreach ($models as $model) {
-            $this->app->bind("App\Services\Contracts\\{$model}Interface", "App\Services\\{$model}Service");
+            $this->app->bind("App\Repositories\Contracts\\{$model}Interface", "App\Repositories\\{$model}Repository");
         }
     }
 }
