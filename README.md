@@ -6,7 +6,7 @@ dalam pengerjaan pembuatan API ini saya menggunakan framework laravel versi 9 de
 - API CRUD Image
 
 ## Cara Install
-- git clone [https://github.com/dederusliandi98/backend-developer-challenge-surplus](https://github.com/dederusliandi98/backend-developer-challenge-surplus)
+- git clone [https://github.com/dederusliandi98/backend-developer-challenge-surplus.git](https://github.com/dederusliandi98/backend-developer-challenge-surplus.git)
 - cd backend-developer-challenge-surplus
 - run composer install
 - cp .env.example .env
