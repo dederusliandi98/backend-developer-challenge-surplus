@@ -13,7 +13,7 @@ dalam pengerjaan pembuatan API ini saya menggunakan framework laravel versi 9 de
 - php artisan key:generate
 - php artisan migrate --seed
 - php artisan storage:link (create symlink)
-- php artisan serve (http://127.0.0.1:8000])
+- php artisan serve (http://127.0.0.1:8000)
 
 ## Postman
 link: https://api.postman.com/collections/1290037-a6381076-2eae-4aa7-8d6c-c9715770b120?access_key=PMAT-01GRZZXA83CGWZK8S6913A7JE0
