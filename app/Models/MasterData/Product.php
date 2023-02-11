@@ -19,4 +19,9 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Models\MasterData\Category')->withTimestamps();
     }
+
+    public function images()
+    {
+        return $this->belongsToMany('App\Models\MasterData\Image', 'product_image')->withTimestamps();
+    }
 }

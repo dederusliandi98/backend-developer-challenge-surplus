@@ -3,7 +3,7 @@
 namespace App\Http\Resources\MasterData;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\MasterData\CategoryResource;
+use App\Http\Resources\MasterData\{CategoryResource, ImageResource};
 
 class ProductResource extends JsonResource
 {
@@ -21,6 +21,7 @@ class ProductResource extends JsonResource
             'description' => $this->description,
             'enable' => $this->enable,
             'categories' => CategoryResource::collection($this->whenLoaded('categories')),
+            'images' => ImageResource::collection($this->whenLoaded('images')),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
