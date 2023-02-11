@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
             #Master data
             'MasterData\Category',
             'MasterData\Product',
+            'MasterData\Image',
         ];
 
         foreach ($models as $model) {

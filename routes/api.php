@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers'], function() {
     Route::resource('categories', 'MasterData\CategoryController');
     Route::resource('products', 'MasterData\ProductController');
+    Route::resource('images', 'MasterData\ImageController');
 });
